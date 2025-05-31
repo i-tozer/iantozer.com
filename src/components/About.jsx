@@ -19,21 +19,17 @@ const About = () => {
             <p className="text-center text-white/90">
               Tozer Labs is a technical consultancy focused on Web3 security and data engineering.
             </p>
-            
-            <p className="text-center text-white/85">
-              I work on blockchain security audits, data systems, and software development. Most of my time is spent finding vulnerabilities in smart contracts, building ETL pipelines, and developing applications that need to handle real-world complexity.
-            </p>
-            
-            <p className="text-center text-blue-100/80">
+                        
+            <p className="text-center text-white/90">
               My background spans security research, full-stack development, and data analysis. I've worked on audits for various protocols, built governance tools for DAOs, and created data systems for everything from trading bots to government mapping projects. I try to contribute to open-source projects when I can.
             </p>
             
-            <p className="text-center text-blue-50/75">
+            <p className="text-center text-white/90">
               I approach problems by understanding the underlying systems first. Whether it's analyzing a smart contract, designing a data pipeline, or building a frontend, I dig into the technical details before implementing solutions.
             </p>
             
             <p className="text-center font-medium text-white">
-              If you're working on something that needs thorough technical work, I'd be happy to help.
+              If you're working on something that needs thorough research and technical work, I'd be happy to help.
             </p>
           </div>
         </div>

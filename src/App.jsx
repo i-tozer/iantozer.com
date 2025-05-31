@@ -9,25 +9,19 @@ import Footer from './components/Footer';
 const App = () => {
   return (
     <div className="min-h-screen overflow-x-hidden bg-black">
-      {/* Header - Fixed navigation */}
+      
       <Header />
       
-      {/* Hero Section - Full viewport height */}
       <Hero />
       
-      {/* Expertise Section */}
       <Expertise />
       
-      {/* About Section */}
       <About />
       
-      {/* Contact Section */}
       <Contact />
       
-      {/* Footer */}
       <Footer />
-      
-      {/* Additional sections can be added here */}
+    
     </div>
   );
 };

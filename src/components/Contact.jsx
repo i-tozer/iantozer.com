@@ -12,7 +12,7 @@ const Contact = () => {
             Get In Touch
           </h2>
           <p className="text-xl text-white/70 max-w-2xl mx-auto">
-            Ready to collaborate on your next breakthrough project?
+            Ready to collaborate?
           </p>
         </div>
 
@@ -38,7 +38,7 @@ const Contact = () => {
                     </svg>
                   </div>
                   <div>
-                    <p className="text-white/90 text-xl font-medium">info@tozerlabs.com</p>
+                    <p className="text-white/90 text-xl font-medium">ian.z.tozer@gmail.com</p>
                   </div>
                 </div>
 
@@ -50,7 +50,7 @@ const Contact = () => {
                     </svg>
                   </div>
                   <div>
-                    <p className="text-blue-100/90 text-xl font-medium">+44 (0) 20 7123 4567</p>
+                    <p className="text-blue-100/90 text-xl font-medium">+44 77 6136 0287 (WhatsApp, Telegram)</p>
                   </div>
                 </div>
 

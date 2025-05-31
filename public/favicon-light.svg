@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="32" height="32" viewBox="0 0 1440 1440">
+  <g transform="matrix(1.3333333,0,0,-1.3333333,0,1440)">
+    <!-- Simplified monochrome version for dark mode - white/light grey -->
+    <path d="M 552.439,769.928 H 528.07 V 893.51 h 24.369 z" style="fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none" />
+    <path d="M 552.439,185.667 H 528.07 v 123.582 h 24.369 z" style="fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none" />
+    <path d="M 770.594,551.772 H 894.177 V 527.404 H 770.594 Z" style="fill:#e5e5e5;fill-opacity:1;fill-rule:nonzero;stroke:none" />
+    <path d="M 186.333,551.772 H 309.915 V 527.404 H 186.333 Z" style="fill:#e5e5e5;fill-opacity:1;fill-rule:nonzero;stroke:none" />
+    <g transform="translate(385.9961,711.0781)">
+      <path d="m 0,0 -17.231,-17.231 -87.386,87.386 17.231,17.231 z" style="fill:#cccccc;fill-opacity:1;fill-rule:nonzero;stroke:none" />
+    </g>
+    <g transform="translate(799.1309,297.9434)">
+      <path d="m 0,0 -17.231,-17.231 -87.386,87.386 17.231,17.231 z" style="fill:#cccccc;fill-opacity:1;fill-rule:nonzero;stroke:none" />
+    </g>
+    <g transform="translate(711.7451,693.8472)">
+      <path d="M 0,0 -17.231,17.231 70.154,104.617 87.386,87.386 Z" style="fill:#b8b8b8;fill-opacity:1;fill-rule:nonzero;stroke:none" />
+    </g>
+    <g transform="translate(298.6099,280.7119)">
+      <path d="m 0,0 -17.231,17.231 87.386,87.386 17.231,-17.23 z" style="fill:#b8b8b8;fill-opacity:1;fill-rule:nonzero;stroke:none" />
+    </g>
+    <g transform="translate(465.8447,757.918)">
+      <path d="m 0,0 -22.618,-9.069 -45.99,114.706 22.618,9.069 z" style="fill:#d4d4d4;fill-opacity:1;fill-rule:nonzero;stroke:none" />
+    </g>
+    <g transform="translate(683.2734,215.6211)">
+      <path d="m 0,0 -22.618,-9.068 -45.99,114.706 22.618,9.068 z" style="fill:#d4d4d4;fill-opacity:1;fill-rule:nonzero;stroke:none" />
+    </g>
+    <g transform="translate(758.585,613.998)">
+      <path d="m 0,0 -9.069,22.618 114.706,45.99 9.069,-22.618 z" style="fill:#a8a8a8;fill-opacity:1;fill-rule:nonzero;stroke:none" />
+    </g>
+    <g transform="translate(216.2876,396.5703)">
+      <path d="m 0,0 -9.068,22.618 114.706,45.99 9.068,-22.618 z" style="fill:#a8a8a8;fill-opacity:1;fill-rule:nonzero;stroke:none" />
+    </g>
+    <!-- Additional simplified elements for completeness -->
+    <g transform="translate(333.2568,641.355)">
+      <path d="m 0,0 -9.581,-22.406 -113.629,48.59 9.581,22.405 z" style="fill:#f0f0f0;fill-opacity:1;fill-rule:nonzero;stroke:none" />
+    </g>
+    <g transform="translate(870.4639,411.6377)">
+      <path d="m 0,0 -9.581,-22.405 -113.63,48.589 9.581,22.406 z" style="fill:#f0f0f0;fill-opacity:1;fill-rule:nonzero;stroke:none" />
+    </g>
+    <g transform="translate(642.0215,746.5864)">
+      <path d="M 0,0 -22.406,9.581 26.184,123.21 48.59,113.629 Z" style="fill:#9a9a9a;fill-opacity:1;fill-rule:nonzero;stroke:none" />
+    </g>
+    <g transform="translate(412.3047,209.3799)">
+      <path d="m 0,0 -22.406,9.581 48.59,113.629 22.405,-9.581 z" style="fill:#9a9a9a;fill-opacity:1;fill-rule:nonzero;stroke:none" />
+    </g>
+  </g>
+</svg> 

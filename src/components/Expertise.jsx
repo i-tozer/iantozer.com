@@ -9,7 +9,7 @@ const Expertise = () => {
         </svg>
       ),
       title: "Protocol Research & Web3 Auditing",
-      description: "Delivering blockchain security with proven track record in public audits for major protocols including Olas, Curves, and Lens Protocol, protecting digital assets through comprehensive vulnerability assessments."
+      description: "Contributing to blockchain security through public audits for protocols including Olas, Curves, and Lens Protocol, and through  vulnerability assessments."
     },
     {
       icon: (
@@ -18,7 +18,7 @@ const Expertise = () => {
         </svg>
       ),
       title: "Data Engineering & ETL Solutions",
-      description: "Transforming complex datasets into actionable insights through custom ETL pipelines, having successfully mapped Web3 employment trends for Solana Foundation and delivered GIS-based asset mapping solutions for government contracts."
+      description: "Working with complex datasets to develop insights through custom ETL pipelines, having contributed to Web3 employment trend analysis for Solana Foundation and supported GIS-based asset mapping solutions for government contracts."
     },
     {
       icon: (
@@ -27,7 +27,7 @@ const Expertise = () => {
         </svg>
       ),
       title: "Full-Stack Development & System Architecture",
-      description: "Building scalable applications from frontend to backend, specializing in Golang, JavaScript, and Rust implementations with expertise in containerization, database optimization, and high-performance trading systems."
+      description: "Developing applications across frontend and backend, working with Golang, JavaScript, and Rust, with experience in containerisation, database optimisation, and trading systems."
     }
   ];
 
@@ -39,7 +39,7 @@ const Expertise = () => {
         {/* Header */}
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-            Our Expertise
+            Expertise
           </h2>
           <p className="text-xl text-white/70 max-w-3xl mx-auto leading-relaxed">
             Research and software development across traditional and web3 disciplines
