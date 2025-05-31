@@ -37,7 +37,7 @@ export async function processSVGToFourierWithPaper(input, targetPoints = 256, pr
   const path = new paper.Path(pathData);
   const absolutePathData = path.pathData; 
   
-  console.log("ABSOLUTE PATH DATA: ", absolutePathData);
+  // console.log("ABSOLUTE PATH DATA: ", absolutePathData);
 
   // Convert path to points
   let points = pathCommandsToPoints(absolutePathData);
