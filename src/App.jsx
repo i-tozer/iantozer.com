@@ -20,7 +20,7 @@ const App = () => {
         // Load all letters
         for (const letter of allLetters) {
           const result = await processSVGToFourierWithPaper(
-            `src/images/${letter}_FRAME_4.svg`, 
+            `/images/${letter}_FRAME_4.svg`, 
             COEFFICIENTS_USED, 
             3, 
             true
