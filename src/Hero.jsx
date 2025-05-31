@@ -55,8 +55,11 @@ const Hero = () => {
     const width = window.innerWidth;
     const height = window.innerHeight;
     
-    // Responsive scale based on screen size
-    const baseScale = Math.min(width, height) * 0.08; // Scale relative to viewport
+    // Mobile check moved earlier
+    const isMobile = width < 768;
+    
+    // Responsive scale based on screen size - smaller base scale on mobile for more space
+    const baseScale = Math.min(width, height) * (isMobile ? 0.07 : 0.08); // Reduced base scale on mobile
     const scale = Math.max(baseScale, 40); // Minimum scale for readability
     
     // Two-row layout calculations
@@ -65,13 +68,12 @@ const Hero = () => {
     
     // Calculate safe margins (account for letter size and animation radius)
     const maxRadius = scale * 2; // Approximate maximum radius for any letter
-    const safeMargin = maxRadius + 20; // Extra padding
+    const safeMargin = isMobile ? maxRadius - 10 : maxRadius + 20; // Much smaller margins on mobile
     const availableWidth = width - (2 * safeMargin);
     
     // Mobile-responsive spacing with increased spacing for mobile
-    const isMobile = width < 768;
-    const baseSpacingMultiplier = isMobile ? 0.16 : 0.12; // Increased spacing for mobile
-    const labsSpacingMultiplier = isMobile ? 0.18 : 0.14; // Even more spacing for LABS on mobile
+    const baseSpacingMultiplier = isMobile ? 0.207 : 0.12; // Increased mobile spacing for more breathing room
+    const labsSpacingMultiplier = isMobile ? 0.207 : 0.14; // Increased mobile spacing by 15% (0.18 * 1.15)
     
     // Calculate spacing to fit within available width
     const tozerSpacing = Math.min(availableWidth / (tozerLetters.length - 1), width * baseSpacingMultiplier);
