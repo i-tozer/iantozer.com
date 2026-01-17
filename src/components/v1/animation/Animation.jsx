@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import * as d3 from 'd3';
 import { processSVGToFourierWithPaper } from './calculations/svg-to-fourier-paper.js';
 
-const App = () => {
+const Animation = () => {
   const svgRef = useRef();
   const animationRef = useRef();
   const [letterCoefficients, setLetterCoefficients] = useState({
@@ -17,15 +17,13 @@ const App = () => {
         const allLetters = ['T', 'O', 'Z', 'E', 'R', 'L', 'A', 'B', 'S'];
         const results = {};
 
-        // Load all letters
         for (const letter of allLetters) {
           const result = await processSVGToFourierWithPaper(
-            `src/images/${letter}_FRAME_4.svg`, 
+            `/images/animation_frames/${letter}_FRAME_4.svg`, 
             COEFFICIENTS_USED, 
             3, 
             true
           );
-          console.log(`${letter} Result:`, result);
           
           const sortedCoeffs = [...result.fourierCoefficients]
             .sort((a, b) => b.magnitude - a.magnitude)
@@ -52,41 +50,114 @@ const App = () => {
     const svg = d3.select(svgRef.current);
     svg.selectAll("*").remove(); // Clear previous content
 
-    // Animation setup
+    // Animation setup with proper responsive calculations
     const width = window.innerWidth;
     const height = window.innerHeight;
-    const scale = 80; // Increased by 25% (45 * 1.25)
+    
+    // Mobile check moved earlier
+    const isMobile = width < 768;
+    
+    // Responsive scale based on screen size - smaller base scale on mobile for more space
+    const baseScale = Math.min(width, height) * (isMobile ? 0.07 : 0.08); // Reduced base scale on mobile
+    const scale = Math.max(baseScale, 40); // Minimum scale for readability
     
     // Two-row layout calculations
     const tozerLetters = ['T', 'O', 'Z', 'E', 'R'];
     const labsLetters = ['L', 'A', 'B', 'S'];
     
-    // Closer letter spacing - reduced spacing values
-    const tozerSpacing = width * 0.09; // Reduced from 0.12 for closer spacing
-    const labsSpacing = width * 0.11; // Reduced from 0.15 for closer spacing
+    // Calculate safe margins (account for letter size and animation radius)
+    const maxRadius = scale * 2; // Approximate maximum radius for any letter
+    const safeMargin = isMobile ? maxRadius - 10 : maxRadius + 20; // Much smaller margins on mobile
+    const availableWidth = width - (2 * safeMargin);
     
-    // Center the words horizontally
-    const tozerStartX = (width - (tozerLetters.length - 1) * tozerSpacing) / 2;
-    const labsStartX = (width - (labsLetters.length - 1) * labsSpacing) / 2;
+    // Mobile-responsive spacing with increased spacing for mobile
+    const baseSpacingMultiplier = isMobile ? 0.207 : 0.12; // Increased mobile spacing for more breathing room
+    const labsSpacingMultiplier = isMobile ? 0.207 : 0.14; // Increased mobile spacing by 15% (0.18 * 1.15)
+    
+    // Calculate spacing to fit within available width
+    const tozerSpacing = Math.min(availableWidth / (tozerLetters.length - 1), width * baseSpacingMultiplier);
+    const labsSpacing = Math.min(availableWidth / (labsLetters.length - 1), width * labsSpacingMultiplier);
+    
+    // Center both words horizontally within safe bounds
+    const tozerTotalWidth = (tozerLetters.length - 1) * tozerSpacing;
+    const labsTotalWidth = (labsLetters.length - 1) * labsSpacing;
+    
+    const tozerStartX = safeMargin + (availableWidth - tozerTotalWidth) / 2;
+    // Center LABS below TOZER
+    const labsStartX = safeMargin + (availableWidth - labsTotalWidth) / 2;
     
     // Vertical positioning
     const tozerY = height * 0.35; // Top row
     const labsY = height * 0.65;  // Bottom row
 
-    // Enhanced color scheme for each letter
+    // Unified, professional color scheme - all letters similar white/light colors
     const letterColors = {
-      // TOZER colors (top row)
-      T: { stroke: 'rgba(255, 80, 80, 0.2)', path: 'rgba(255, 80, 80, 0.4)', fill: '#ff4757', armFill: '#ff6b7a' },
-      O: { stroke: 'rgba(80, 255, 80, 0.2)', path: 'rgba(80, 255, 80, 0.4)', fill: '#2ed573', armFill: '#7bed9f' },
-      Z: { stroke: 'rgba(80, 80, 255, 0.2)', path: 'rgba(80, 80, 255, 0.4)', fill: '#5352ed', armFill: '#7f8ff4' },
-      E: { stroke: 'rgba(255, 200, 80, 0.2)', path: 'rgba(255, 200, 80, 0.4)', fill: '#ffa502', armFill: '#ffb142' },
-      R: { stroke: 'rgba(255, 80, 200, 0.2)', path: 'rgba(255, 80, 200, 0.4)', fill: '#ff3838', armFill: '#ff6b9d' },
+      // TOZER colors (top row) - consistent white theme
+      T: { 
+        stroke: 'rgba(255, 255, 255, 0.15)',
+        lines: 'rgba(255, 255, 255, 0.1)',
+        path: 'rgba(255, 255, 255, 0.9)', 
+        fill: '#ffffff', 
+        armFill: 'rgba(255, 255, 255, 0.95)'
+      },
+      O: { 
+        stroke: 'rgba(255, 255, 255, 0.15)',
+        lines: 'rgba(255, 255, 255, 0.1)',
+        path: 'rgba(255, 255, 255, 0.88)', 
+        fill: '#ffffff', 
+        armFill: 'rgba(255, 255, 255, 0.93)'
+      },
+      Z: { 
+        stroke: 'rgba(255, 255, 255, 0.15)',
+        lines: 'rgba(255, 255, 255, 0.1)',
+        path: 'rgba(255, 255, 255, 0.9)', 
+        fill: '#ffffff', 
+        armFill: 'rgba(255, 255, 255, 0.95)'
+      },
+      E: { 
+        stroke: 'rgba(255, 255, 255, 0.15)',
+        lines: 'rgba(255, 255, 255, 0.1)',
+        path: 'rgba(255, 255, 255, 0.92)', 
+        fill: '#ffffff', 
+        armFill: 'rgba(255, 255, 255, 0.96)'
+      },
+      R: { 
+        stroke: 'rgba(255, 255, 255, 0.15)',
+        lines: 'rgba(255, 255, 255, 0.1)',
+        path: 'rgba(255, 255, 255, 0.94)', 
+        fill: '#ffffff', 
+        armFill: 'rgba(255, 255, 255, 0.98)'
+      },
       
-      // LABS colors (bottom row)
-      L: { stroke: 'rgba(150, 255, 150, 0.2)', path: 'rgba(150, 255, 150, 0.4)', fill: '#26de81', armFill: '#7bed9f' },
-      A: { stroke: 'rgba(255, 150, 100, 0.2)', path: 'rgba(255, 150, 100, 0.4)', fill: '#fd79a8', armFill: '#fdcb6e' },
-      B: { stroke: 'rgba(100, 200, 255, 0.2)', path: 'rgba(100, 200, 255, 0.4)', fill: '#74b9ff', armFill: '#a29bfe' },
-      S: { stroke: 'rgba(200, 100, 255, 0.2)', path: 'rgba(200, 100, 255, 0.4)', fill: '#a29bfe', armFill: '#fd79a8' }
+      // LABS colors (bottom row) - consistent with TOZER
+      L: { 
+        stroke: 'rgba(255, 255, 255, 0.15)',
+        lines: 'rgba(255, 255, 255, 0.1)',
+        path: 'rgba(255, 255, 255, 0.88)', 
+        fill: '#ffffff', 
+        armFill: 'rgba(255, 255, 255, 0.93)'
+      },
+      A: { 
+        stroke: 'rgba(255, 255, 255, 0.15)',
+        lines: 'rgba(255, 255, 255, 0.1)',
+        path: 'rgba(255, 255, 255, 0.9)', 
+        fill: '#ffffff', 
+        armFill: 'rgba(255, 255, 255, 0.95)'
+      },
+      B: { 
+        stroke: 'rgba(255, 255, 255, 0.15)',
+        lines: 'rgba(255, 255, 255, 0.1)',
+        path: 'rgba(255, 255, 255, 0.92)', 
+        fill: '#ffffff', 
+        armFill: 'rgba(255, 255, 255, 0.96)'
+      },
+      S: { 
+        stroke: 'rgba(255, 255, 255, 0.15)',
+        lines: 'rgba(255, 255, 255, 0.1)',
+        path: 'rgba(255, 255, 255, 0.94)', 
+        fill: '#ffffff', 
+        armFill: 'rgba(255, 255, 255, 0.98)'
+      }
     };
 
     // Set SVG dimensions
@@ -94,10 +165,10 @@ const App = () => {
 
     // Create animation data for each letter
     const createLetterAnimation = (coefficients, centerX, centerY, letter) => {
-      let allPathData = [];
-      let currentSegmentPoints = [];
-      const maxTotalPoints = 1800; // Optimized for 9 letters
-      const segmentLength = 10;
+      // Immediate drawing variables
+      let pathData = "";
+      let pointCount = 0;
+      const maxPathLength = 1000;
 
       // Create groups for this letter
       const letterGroup = svg.append('g').attr('class', `letter-${letter}`);
@@ -106,7 +177,18 @@ const App = () => {
       const pathGroup = letterGroup.append('g').attr('class', 'path');
       const dotsGroup = letterGroup.append('g').attr('class', 'dots');
 
-      // Create circles (skip the DC component for visual purposes)
+      // Create single path element for immediate drawing - clean and elegant
+      const drawingPath = pathGroup.append('path')
+        .style('fill', 'none')
+        .style('stroke', letterColors[letter].path)
+        .style('stroke-width', '1.5px')
+        .style('stroke-linecap', 'round')
+        .style('stroke-linejoin', 'round')
+        .style('opacity', 0.9)
+        .style('filter', 'drop-shadow(0 0 2px rgba(255, 255, 255, 0.3))')
+        .style('mix-blend-mode', 'normal');
+
+      // Create circles - minimal and clean but more visible
       const visualCoeffs = coefficients.filter(c => c.frequency !== 0);
 
       const circles = circlesGroup.selectAll('.circle')
@@ -114,38 +196,42 @@ const App = () => {
         .enter()
         .append('circle')
         .attr('class', 'circle')
-        .attr('r', d => Math.max(d.magnitude * scale, 1)) // Increased from 0.8
+        .attr('r', d => Math.max(d.magnitude * scale, 0.5))
         .style('fill', 'none')
         .style('stroke', letterColors[letter].stroke)
-        .style('stroke-width', '1.25px'); // Increased by 25%
+        .style('stroke-width', '1.5px')
+        .style('opacity', 0.8);
 
-      // Create connecting lines
+      // Create connecting lines - subtle and professional
       const lines = linesGroup.selectAll('.connecting-line')
         .data(coefficients)
         .enter()
         .append('line')
         .attr('class', 'connecting-line')
-        .style('stroke', letterColors[letter].stroke)
-        .style('stroke-width', '0.875px'); // Increased by 25% (0.7 * 1.25)
+        .style('stroke', letterColors[letter].lines)
+        .style('stroke-width', '0.5px')
+        .style('opacity', 0.4);
 
-      // Create center dot
+      // Create center dot - clean and minimal
       const centerDot = dotsGroup.append('circle')
         .attr('class', 'center-dot')
-        .attr('r', 2.5) // Increased by 25% (2 * 1.25)
+        .attr('r', 2)
         .style('fill', letterColors[letter].fill)
-        .style('stroke', 'white')
-        .style('stroke-width', '1.5px'); // Increased by 25%
+        .style('stroke', 'rgba(255, 255, 255, 0.8)')
+        .style('stroke-width', '1px')
+        .style('filter', 'drop-shadow(0 0 4px rgba(255, 255, 255, 0.4))');
 
-      // Create arm dots
+      // Create arm dots - subtle and elegant
       const armDots = dotsGroup.selectAll('.arm-dot')
         .data(coefficients)
         .enter()
         .append('circle')
         .attr('class', 'arm-dot')
-        .attr('r', 1) // Increased by 25% (0.8 * 1.25)
+        .attr('r', 1)
         .style('fill', letterColors[letter].armFill)
-        .style('stroke', 'white')
-        .style('stroke-width', '0.75px'); // Increased by 25%
+        .style('stroke', 'rgba(255, 255, 255, 0.6)')
+        .style('stroke-width', '0.5px')
+        .style('opacity', 0.8);
 
       return {
         coefficients,
@@ -155,11 +241,10 @@ const App = () => {
         lines,
         centerDot,
         armDots,
-        pathGroup,
-        allPathData,
-        currentSegmentPoints,
-        maxTotalPoints,
-        segmentLength,
+        drawingPath,
+        pathData,
+        pointCount,
+        maxPathLength,
         letter
       };
     };
@@ -250,49 +335,43 @@ const App = () => {
         .attr('cx', (d, i) => positions[i + 1] ? positions[i + 1].tipX : positions[i].tipX)
         .attr('cy', (d, i) => positions[i + 1] ? positions[i + 1].tipY : positions[i].tipY);
 
-      // Add current drawing position to paths
+      // IMMEDIATE line drawing - draw directly at the tip position
       const finalPos = positions[positions.length - 1];
-      const newPoint = [finalPos.tipX, finalPos.tipY];
+      
+      if (letterData.pointCount === 0) {
+        // Start the path
+        letterData.pathData = `M${finalPos.tipX},${finalPos.tipY}`;
+      } else {
+        // Add line to current position
+        letterData.pathData += `L${finalPos.tipX},${finalPos.tipY}`;
+      }
+      
+      letterData.pointCount++;
 
-      // Add point to current segment
-      letterData.currentSegmentPoints.push(newPoint);
-      letterData.allPathData.push(newPoint);
-
-      // Create a new path segment when we have enough points
-      if (letterData.currentSegmentPoints.length >= letterData.segmentLength) {
-        const lineGenerator = d3.line()
-          .x(d => d[0])
-          .y(d => d[1])
-          .curve(d3.curveCatmullRom.alpha(0.5));
-
-        letterData.pathGroup.append('path')
-          .attr('d', lineGenerator(letterData.currentSegmentPoints))
-          .style('fill', 'none')
-          .style('stroke', letterColors[letterData.letter].path)
-          .style('stroke-width', '2px') // Increased by 25% (1.6 * 1.25)
-          .style('stroke-linecap', 'round')
-          .style('stroke-linejoin', 'round')
-          .style('mix-blend-mode', 'lighten');
-
-        // Start new segment with overlap for smoothness
-        letterData.currentSegmentPoints = letterData.currentSegmentPoints.slice(-5);
+      // Limit path length for performance
+      if (letterData.pointCount > letterData.maxPathLength) {
+        // Remove old points by finding the first 'L' and removing everything before it
+        const firstL = letterData.pathData.indexOf('L');
+        if (firstL !== -1) {
+          letterData.pathData = 'M' + letterData.pathData.substring(firstL + 1);
+          letterData.pointCount--;
+        }
       }
 
-      // Limit total points to prevent performance issues
-      if (letterData.allPathData.length > letterData.maxTotalPoints) {
-        letterData.allPathData.shift();
-        
-        // Remove old path elements to maintain performance
-        const paths = letterData.pathGroup.selectAll('path');
-        if (paths.size() > 50) {
-          paths.filter((d, i) => i < 5).remove();
-        }
+      // Update the path immediately
+      letterData.drawingPath.attr('d', letterData.pathData);
+
+      // Dynamic color update - very subtle and professional
+      if (letterData.pointCount % 20 === 0) {
+        // Very subtle color variation - stays professional
+        const baseOpacity = 0.85 + Math.sin(t * Math.PI * 2) * 0.1;
+        letterData.drawingPath.style('opacity', baseOpacity);
       }
     }
 
     // Main animation function
     function animate(elapsed) {
-      const t = (elapsed / 7000) % 1; // 7 second cycle - faster animation
+      const t = (elapsed / 9100) % 1; // Slowed down by 30% (7000 * 1.3 = 9100)
       
       // Update all letters
       const allLetters = [...tozerLetters, ...labsLetters];
@@ -324,14 +403,19 @@ const App = () => {
   }, [letterCoefficients]);
 
   return (
-    <div className="w-full h-screen bg-gradient-to-br from-blue-900 via-blue-800 to-blue-600 overflow-hidden relative">
+    <div className="w-full h-screen bg-gradient-to-br from-gray-900 via-slate-800 to-gray-900 overflow-hidden relative">
       <svg
         ref={svgRef}
-        className="drop-shadow-2xl"
-        style={{ filter: 'drop-shadow(0 0 20px rgba(255,255,255,0.1))' }}
+        className="drop-shadow-2xl w-full h-full"
+        style={{ 
+          filter: 'drop-shadow(0 0 30px rgba(255,255,255,0.05))',
+          background: 'radial-gradient(ellipse at center, rgba(15, 23, 42, 0.4) 0%, rgba(2, 6, 23, 0.8) 50%, rgba(0, 0, 0, 0.95) 100%)',
+          maxWidth: '100vw',
+          maxHeight: '100vh'
+        }}
       />
     </div>
   );
 };
 
-export default App;
+export default Animation; 

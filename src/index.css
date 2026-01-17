@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@300;400&family=Poppins:wght@400;600&display=swap");
 @import "tailwindcss";
 
 /* Global background and overflow prevention */
@@ -27,4 +28,56 @@ body {
 body {
   position: relative;
   width: 100%;
+}
+
+/* Basic markdown typography */
+.markdown-content h3 {
+  font-family: "Poppins", sans-serif;
+  font-size: 1.6rem;
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+  letter-spacing: -0.02em;
+  color: #fff;
+}
+
+.markdown-content p {
+  margin-bottom: 1rem;
+  line-height: 1.7;
+}
+
+.markdown-content ul {
+  margin: 1rem 0 1rem 1.5rem;
+  list-style-type: disc;
+}
+
+.markdown-content strong {
+  color: #fff;
+}
+
+.markdown-content a {
+  color: #8f87ff;
+  text-decoration: underline;
+}
+
+.markdown-iframes {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.markdown-iframes iframe {
+  border: none;
+  width: 100%;
+  height: 220px;
+  border-radius: 16px;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.35);
+}
+@keyframes slide {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
 }
