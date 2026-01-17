@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Redirecting…</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+      body {
+        font-family: sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        background: #03012e;
+        color: #fff;
+      }
+    </style>
+  </head>
+  <body>
+    <p>Redirecting…</p>
+    <script>
+      (function () {
+        var path = window.location.pathname + window.location.search + window.location.hash;
+        try {
+          sessionStorage.setItem('tozerlabs_redirect', path);
+        } catch (err) {}
+        window.location.replace('/');
+      })();
+    </script>
+  </body>
+</html>

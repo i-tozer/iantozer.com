@@ -1210,8 +1210,19 @@ const BlogArticlePage = ({ slug }) => {
 };
 
 const App = () => {
-  const pathname = typeof window !== 'undefined' ? window.location.pathname : '/';
-  const segments = pathname.split('/').filter(Boolean);
+  const getPath = () => {
+    if (typeof window === 'undefined') return '/';
+    const stored = window.sessionStorage.getItem('tozerlabs_redirect');
+    if (stored) {
+      window.sessionStorage.removeItem('tozerlabs_redirect');
+      return stored;
+    }
+    return window.location.pathname + window.location.search + window.location.hash;
+  };
+
+  const currentPath = getPath();
+  const normalizedPath = currentPath.split('?')[0].split('#')[0];
+  const segments = normalizedPath.split('/').filter(Boolean);
   const root = segments[0] ?? '';
   const subSlug = segments[1];
 
