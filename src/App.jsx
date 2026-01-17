@@ -1215,6 +1215,7 @@ const App = () => {
     const stored = window.sessionStorage.getItem('tozerlabs_redirect');
     if (stored) {
       window.sessionStorage.removeItem('tozerlabs_redirect');
+      window.history.replaceState(null, '', stored);
       return stored;
     }
     return window.location.pathname + window.location.search + window.location.hash;
