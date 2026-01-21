@@ -1,5 +1,11 @@
 import React from 'react';
 import auditProcessArticle from './content/blog/our-smart-contract-audit-process.md?raw';
+import aragonVeGovernanceReport from './content/portfolio/aragon_ve_1/aragon_ve_1.md?raw';
+import aragonVeGovernanceTwoReport from './content/portfolio/aragon_ve_2/aragon_ve_2.md?raw';
+import aragonVeBoundaryConditionsReport from './content/portfolio/aragon_ve_boundary_conditions/aragon_ve_boundary_conditions.md?raw';
+import berryblockReport from './content/portfolio/berryblock/berryblock.md?raw';
+import solanaReport from './content/portfolio/solana/solana.md?raw';
+import aaveReport from './content/portfolio/aave/aave.md?raw';
 
 /*
 Start by making a HEADER.
@@ -143,7 +149,7 @@ const Header = () => {
             </a>
           ))}
           <a
-            href="#contact"
+            href="/contact"
             className="ml-auto inline-flex items-center justify-center rounded-lg bg-[#5640FF] px-5 py-2 text-sm font-semibold text-white shadow-[0_10px_30px_rgba(86,64,255,0.35)] transition-transform hover:-translate-y-0.5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white sm:ml-6"
           >
             Contact Us
@@ -187,11 +193,11 @@ const Hero = () => {
             className="mt-6 text-[18px] leading-7 text-[#EEE0FF]"
             style={{ fontFamily: '"Inter", sans-serif', fontWeight: 300 }}
           >
-            Startups | dApps | Traders | Distributed Systems | Innovators
+            Distributed Systems | dApps | Startups | Innovators
           </p>
           <div className="mt-6">
             <a
-              href="#contact"
+              href="/contact"
               className="inline-flex w-fit items-center justify-center rounded-xl bg-[#5640FF] px-10 py-5 text-lg font-semibold text-white shadow-[0_20px_40px_rgba(86,64,255,0.35)] transition-transform hover:-translate-y-0.5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
             >
               Contact Us
@@ -322,29 +328,124 @@ const ResearchDevelopment = () => {
 };
 
 const auditCardsPrimary = [
-  { title: "Aragon's VE Governance #1", subtitle: 'Smart Contract Audit', src: '/images/cards/aragon_ve_1.png' },
-  { title: "Aragon's VE Governance #2", subtitle: 'Smart Contract Audit', src: '/images/cards/aragon_ve_2.png' },
-  { title: 'Swaplor Review', subtitle: 'Smart Contract Audit', src: '/images/cards/berryblock_1.png' },
+  {
+    title: "Aragon's VE Governance #1",
+    subtitle: 'Smart Contract Audit',
+    src: '/images/cards/aragon_ve_1.png',
+    href: '/portfolio/aragon-ve-governance-1',
+  },
+  {
+    title: "Aragon's VE Governance #2",
+    subtitle: 'Smart Contract Audit',
+    src: '/images/cards/aragon_ve_2.png',
+    href: '/portfolio/aragon-ve-governance-2',
+  },
+  {
+    title: 'Swaplor Review',
+    subtitle: 'Smart Contract Audit',
+    src: '/images/cards/berryblock_1.png',
+    href: '/portfolio/swaplor-review',
+  },
 ];
 
 const auditReportCards = [
   ...auditCardsPrimary,
   { title: 'Coral Systems Review', subtitle: 'Smart Contract Audit', src: '/images/cards/coral.png' },
-  { title: "Aragon's VE Boundary", subtitle: 'Smart Contract Audit', src: '/images/cards/aragon_ve_boundary.png' },
+  {
+    title: "Aragon's VE Boundary",
+    subtitle: 'Smart Contract Audit',
+    src: '/images/cards/aragon_ve_boundary.png',
+    href: '/portfolio/aragon-ve-boundary',
+  },
 ];
 
 const featuredWorks = [
-  { title: 'DAO Governance UX', subtitle: 'Development Grant', src: '/images/cards/aave.png' },
-  { title: 'Web3 Geography Analytics', subtitle: 'Development Grant', src: '/images/cards/solana.png' },
+  {
+    title: 'DAO Governance UX',
+    subtitle: 'Development Grant',
+    src: '/images/cards/aave.png',
+    href: '/portfolio/dao-governance-ux',
+  },
+  {
+    title: 'Web3 Geography Analytics',
+    subtitle: 'Development Grant',
+    src: '/images/cards/solana.png',
+    href: '/portfolio/web3-geography-analytics',
+  },
   { title: 'Sports Arbitrage Bot', subtitle: 'Trading Algorithm & Execution', src: '/images/cards/sports_arb.png' },
 ];
 
 const additionalPortfolioCards = [
   { title: 'Eleventh House Initiative', subtitle: 'Research & Development', src: '/images/cards/eleventh_house.png' },
-  { title: 'Hound Signal Engine', subtitle: 'Research & Development', src: '/images/cards/hound.png' },
+  {
+    title: 'Hound: Language-agnostic AI auditor',
+    subtitle: 'Research & Development',
+    src: '/images/cards/hound.png',
+    href: 'https://github.com/scabench-org/hound',
+    external: true,
+  },
 ];
 
-const portfolioCards = [...auditReportCards, ...featuredWorks, ...additionalPortfolioCards];
+const portfolioDetails = [
+  {
+    slug: 'aragon-ve-governance-1',
+    title: "Aragon's VE Governance #1",
+    subtitle: 'Smart Contract Audit',
+    heroImage: '/images/cards/aragon_ve_1.png',
+    content: aragonVeGovernanceReport,
+  },
+  {
+    slug: 'aragon-ve-governance-2',
+    title: "Aragon's VE Governance #2",
+    subtitle: 'Smart Contract Audit',
+    heroImage: '/images/cards/aragon_ve_2.png',
+    content: aragonVeGovernanceTwoReport,
+  },
+  {
+    slug: 'aragon-ve-boundary',
+    title: "Aragon's VE Boundary",
+    subtitle: 'Smart Contract Audit',
+    heroImage: '/images/cards/aragon_ve_boundary.png',
+    content: aragonVeBoundaryConditionsReport,
+  },
+  {
+    slug: 'swaplor-review',
+    title: 'Swaplor Review',
+    subtitle: 'Smart Contract Audit',
+    heroImage: '/images/cards/berryblock_1.png',
+    content: berryblockReport,
+  },
+  {
+    slug: 'web3-geography-analytics',
+    title: 'Web3 Geography Analytics',
+    subtitle: 'Development Grant',
+    heroImage: '/images/cards/solana.png',
+    content: solanaReport,
+  },
+  {
+    slug: 'dao-governance-ux',
+    title: 'DAO Governance UX',
+    subtitle: 'Development Grant',
+    heroImage: '/images/cards/aave.png',
+    content: aaveReport,
+  },
+];
+
+const externalPortfolioLinks = [
+  {
+    title: 'Hound: Language-agnostic AI auditor',
+    href: 'https://github.com/scabench-org/hound',
+  },
+];
+
+const portfolioCards = [...auditReportCards, ...featuredWorks, ...additionalPortfolioCards].map((card) => {
+  const detail = portfolioDetails.find((item) => item.title === card.title);
+  if (detail) {
+    return { ...card, href: `/portfolio/${detail.slug}` };
+  }
+  const externalLink = externalPortfolioLinks.find((item) => item.title === card.title);
+  return externalLink ? { ...card, href: externalLink.href, external: true } : card;
+});
 const researchCards = [...featuredWorks, ...additionalPortfolioCards];
 
 const convertMarkdownToHtml = (markdown) => {
@@ -355,11 +456,24 @@ const convertMarkdownToHtml = (markdown) => {
     escapeHtml(text)
       .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
       .replace(/\*(.+?)\*/g, '<em>$1</em>')
+      .replace(/`(.+?)`/g, '<code>$1</code>')
+      .replace(/!\[(.*?)\]\((.+?)\)/g, '<img alt="$1" src="$2" />')
       .replace(/\[(.+?)\]\((.+?)\)/g, '<a href="$2" target="_blank" rel="noreferrer">$1</a>');
+
+  const splitTableRow = (row) =>
+    row
+      .split('|')
+      .map((cell) => cell.trim())
+      .filter((cell) => cell.length > 0);
 
   const lines = markdown.split('\n');
   const htmlParts = [];
   let listBuffer = [];
+  let inCodeBlock = false;
+  let codeBuffer = [];
+  let codeLang = '';
+  let inImageGrid = false;
+  let imageGridItems = [];
 
   const flushList = () => {
     if (listBuffer.length > 0) {
@@ -368,32 +482,145 @@ const convertMarkdownToHtml = (markdown) => {
     }
   };
 
-  lines.forEach((rawLine) => {
+  const flushCode = () => {
+    if (codeBuffer.length > 0) {
+      const languageClass = codeLang ? ` class="language-${codeLang}"` : '';
+      htmlParts.push(
+        `<pre><code${languageClass}>${escapeHtml(codeBuffer.join('\n'))}</code></pre>`,
+      );
+      codeBuffer = [];
+      codeLang = '';
+    }
+  };
+
+  const flushImageGrid = () => {
+    if (imageGridItems.length > 0) {
+      htmlParts.push(`<div class="markdown-image-grid">${imageGridItems.join('')}</div>`);
+      imageGridItems = [];
+    }
+  };
+
+  const parseTable = (startIndex) => {
+    const headerCells = splitTableRow(lines[startIndex]);
+    const bodyRows = [];
+    let index = startIndex + 2;
+
+    while (index < lines.length) {
+      const rowLine = lines[index].trim();
+      if (!rowLine || !rowLine.includes('|')) {
+        break;
+      }
+      bodyRows.push(splitTableRow(rowLine));
+      index += 1;
+    }
+
+    const headerHtml = headerCells.map((cell) => `<th>${formatInline(cell)}</th>`).join('');
+    const bodyHtml = bodyRows
+      .map((row) => `<tr>${row.map((cell) => `<td>${formatInline(cell)}</td>`).join('')}</tr>`)
+      .join('');
+
+    return {
+      html: `<table><thead><tr>${headerHtml}</tr></thead><tbody>${bodyHtml}</tbody></table>`,
+      nextIndex: index - 1,
+    };
+  };
+
+  for (let i = 0; i < lines.length; i += 1) {
+    const rawLine = lines[i];
+
+    if (rawLine.trim().startsWith('```')) {
+      if (inCodeBlock) {
+        inCodeBlock = false;
+        flushCode();
+      } else {
+        flushList();
+        inCodeBlock = true;
+        codeLang = rawLine.trim().replace(/```/, '').trim();
+      }
+      continue;
+    }
+
+    if (inCodeBlock) {
+      codeBuffer.push(rawLine);
+      continue;
+    }
+
     const line = rawLine.trim();
+
+    if (line.startsWith(':::image-grid')) {
+      flushList();
+      inImageGrid = true;
+      continue;
+    }
+
+    if (inImageGrid) {
+      if (line.startsWith(':::')) {
+        flushImageGrid();
+        inImageGrid = false;
+        continue;
+      }
+      if (!line) {
+        continue;
+      }
+      imageGridItems.push(
+        `<div class="markdown-image-grid__item">${formatInline(line)}</div>`,
+      );
+      continue;
+    }
+
+    if (line.startsWith(':::excalidraw')) {
+      flushList();
+      flushImageGrid();
+      const src = line.replace(':::excalidraw', '').trim();
+      if (src) {
+        htmlParts.push(
+          `<div class="markdown-excalidraw"><iframe title="Excalidraw diagram" src="${src}" loading="lazy" allowFullScreen></iframe></div>`,
+        );
+      }
+      continue;
+    }
+
     if (!line) {
       flushList();
-      return;
+      continue;
+    }
+
+    const nextLine = lines[i + 1] ? lines[i + 1].trim() : '';
+    const tableDividerPattern = /^(\|?\s*:?-+:?\s*)+\|?$/;
+    if (line.includes('|') && tableDividerPattern.test(nextLine)) {
+      flushList();
+      const tableResult = parseTable(i);
+      htmlParts.push(tableResult.html);
+      i = tableResult.nextIndex;
+      continue;
     }
 
     if (line.startsWith('- ')) {
       const content = formatInline(line.replace(/^- /, ''));
       listBuffer.push(`<li>${content}</li>`);
-      return;
+      continue;
     }
 
     flushList();
 
-    if (line.startsWith('## ')) {
-      htmlParts.push(
-        `<h3>${formatInline(line.replace(/^##\s*/, ''))}</h3>`,
-      );
-      return;
+    const headingMatch = line.match(/^(#{1,5})\s+(.*)$/);
+    if (headingMatch) {
+      const level = headingMatch[1].length;
+      htmlParts.push(`<h${level}>${formatInline(headingMatch[2])}</h${level}>`);
+      continue;
     }
 
     htmlParts.push(`<p>${formatInline(line)}</p>`);
-  });
+  }
 
   flushList();
+  if (inCodeBlock) {
+    flushCode();
+  }
+  if (inImageGrid) {
+    flushImageGrid();
+  }
+
   return htmlParts.join('');
 };
 
@@ -425,20 +652,46 @@ const FeaturedAudits = ({
           {title}
         </h3>
         <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {cards.map((card) => (
-            <article
-              key={card.title}
-              className="overflow-hidden rounded-3xl bg-white/5 transition duration-300 hover:-translate-y-2 hover:scale-[1.02]"
-              style={{ boxShadow: '0 25px 70px rgba(0,0,0,0.35)' }}
-            >
-              <img
-                src={card.src}
-                alt={`${card.title} preview`}
-                className="h-full w-full object-cover"
-                loading="lazy"
-              />
-            </article>
-          ))}
+          {cards.map((card) => {
+            const cardMarkup = (
+              <article
+                className="relative overflow-hidden rounded-3xl bg-white/5 transition duration-300 hover:-translate-y-2 hover:scale-[1.02]"
+                style={{ boxShadow: '0 25px 70px rgba(0,0,0,0.35)' }}
+              >
+                <img
+                  src={card.src}
+                  alt={`${card.title} preview`}
+                  className="h-full w-full object-cover"
+                  loading="lazy"
+                />
+                {card.href && (
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#05042A]/95 via-[#05042A]/40 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+                    <div className="absolute bottom-0 left-0 right-0 p-6">
+                      <p className="text-xs uppercase tracking-[0.3em] text-[#A7A0D6]">{card.subtitle}</p>
+                      <p className="mt-2 text-lg font-semibold text-white">{card.title}</p>
+                      <span className="mt-4 inline-flex items-center text-sm font-semibold text-white">
+                        Read case study&nbsp;&nbsp;→
+                      </span>
+                    </div>
+                  </div>
+                )}
+              </article>
+            );
+
+            return card.href ? (
+              <a
+                key={card.title}
+                href={card.href}
+                className="group block"
+                target={card.external ? '_blank' : undefined}
+                rel={card.external ? 'noreferrer' : undefined}
+              >
+                {cardMarkup}
+              </a>
+            ) : (
+              <div key={card.title}>{cardMarkup}</div>
+            );
+          })}
         </div>
       </div>
     </section>
@@ -458,20 +711,40 @@ const FeaturedWorks = () => {
           Featured Works
         </h3>
         <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {featuredWorks.map((card) => (
-            <article
-              key={card.title}
-              className="overflow-hidden rounded-3xl bg-[#050316] transition duration-300 hover:-translate-y-2 hover:scale-[1.02]"
-              style={{ boxShadow: '0 25px 70px rgba(0,0,0,0.35)' }}
-            >
-              <img
-                src={card.src}
-                alt={`${card.title} preview`}
-                className="h-full w-full object-cover"
-                loading="lazy"
-              />
-            </article>
-          ))}
+          {featuredWorks.map((card) => {
+            const cardMarkup = (
+              <article
+                className="relative overflow-hidden rounded-3xl bg-[#050316] transition duration-300 hover:-translate-y-2 hover:scale-[1.02]"
+                style={{ boxShadow: '0 25px 70px rgba(0,0,0,0.35)' }}
+              >
+                <img
+                  src={card.src}
+                  alt={`${card.title} preview`}
+                  className="h-full w-full object-cover"
+                  loading="lazy"
+                />
+                {card.href && (
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#05042A]/95 via-[#05042A]/40 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+                    <div className="absolute bottom-0 left-0 right-0 p-6">
+                      <p className="text-xs uppercase tracking-[0.3em] text-[#A7A0D6]">{card.subtitle}</p>
+                      <p className="mt-2 text-lg font-semibold text-white">{card.title}</p>
+                      <span className="mt-4 inline-flex items-center text-sm font-semibold text-white">
+                        Read case study&nbsp;&nbsp;→
+                      </span>
+                    </div>
+                  </div>
+                )}
+              </article>
+            );
+
+            return card.href ? (
+              <a key={card.title} href={card.href} className="group block">
+                {cardMarkup}
+              </a>
+            ) : (
+              <div key={card.title}>{cardMarkup}</div>
+            );
+          })}
         </div>
       </div>
     </section>
@@ -482,22 +755,15 @@ const footerLinks = [
   {
     heading: 'Company',
     links: [
-      { label: 'About', href: '#about' },
-      { label: 'Contact Us', href: '#contact' },
+      { label: 'About', href: '/about' },
+      { label: 'Contact Us', href: '/contact' },
     ],
   },
   {
     heading: 'Services',
     links: [
-      { label: 'Smart Contract Auditing', href: '#services' },
-      { label: 'Audit Reports', href: '#reports' },
-    ],
-  },
-  {
-    heading: 'Legal',
-    links: [
-      { label: 'Privacy Policy', href: '#privacy' },
-      { label: 'Terms of Service', href: '#terms' },
+      { label: 'Smart Contract Auditing', href: '/audits' },
+      { label: 'Audit Reports', href: '/reports' },
     ],
   },
 ];
@@ -510,13 +776,13 @@ const Footer = () => {
           <div className="flex items-center gap-4 text-white">
             <img src="/images/logo/logo_colour.svg" alt="Tozer Labs emblem" className="h-12 w-auto" />
             <span
-              className="text-2xl tracking-[0.2em]"
+              className="text-2xl tracking-[0.2em] text-[#C3CCE2]"
               style={{ fontFamily: '"IBM Plex Mono", monospace' }}
             >
               TOZER LABS
             </span>
           </div>
-          <div className="grid flex-1 grid-cols-1 gap-8 text-sm sm:grid-cols-3">
+          <div className="grid w-full max-w-md grid-cols-1 gap-8 text-sm sm:w-auto sm:grid-cols-2 sm:gap-10">
             {footerLinks.map((group) => (
               <div key={group.heading}>
                 <p className="text-base font-semibold text-white">{group.heading}</p>
@@ -570,7 +836,7 @@ const SmartContractAuditHero = () => {
           </p>
           <div className="mt-6">
             <a
-              href="#contact"
+              href="/contact"
               className="inline-flex w-fit items-center justify-center rounded-xl bg-[#5B4BFF] px-10 py-4 text-lg font-semibold text-white shadow-[0_20px_40px_rgba(86,64,255,0.35)] transition-transform hover:-translate-y-0.5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
             >
               Request Audit&nbsp;&nbsp;→
@@ -636,7 +902,7 @@ const TargetedInvestigations = () => {
           </p>
           <div className="mt-6">
             <a
-              href="#contact"
+              href="/contact"
               className="inline-flex w-fit items-center justify-center rounded-xl bg-[#5B4BFF] px-10 py-4 text-lg font-semibold text-white shadow-[0_20px_40px_rgba(86,64,255,0.35)] transition-transform hover:-translate-y-0.5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
             >
               Contact Us&nbsp;&nbsp;→
@@ -676,10 +942,10 @@ const AuditReportsHero = () => {
           </p>
           <div className="mt-6">
             <a
-              href="#reports"
+              href="/contact"
               className="inline-flex w-fit items-center justify-center rounded-xl bg-[#5B4BFF] px-10 py-4 text-lg font-semibold text-white shadow-[0_20px_40px_rgba(86,64,255,0.35)] transition-transform hover:-translate-y-0.5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
             >
-              Read Reports&nbsp;&nbsp;→
+              Request Audit&nbsp;&nbsp;→
             </a>
           </div>
         </div>
@@ -715,10 +981,10 @@ const PortfolioHero = () => {
           </p>
           <div className="mt-6">
             <a
-              href="#portfolio-grid"
+              href="/contact"
               className="inline-flex w-fit items-center justify-center rounded-xl bg-[#5B4BFF] px-10 py-4 text-lg font-semibold text-white shadow-[0_20px_40px_rgba(86,64,255,0.35)] transition-transform hover:-translate-y-0.5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
             >
-              View Work&nbsp;&nbsp;→
+              Contact Us&nbsp;&nbsp;→
             </a>
           </div>
         </div>
@@ -750,12 +1016,11 @@ const ResearchHero = () => {
             className="mt-4 text-[18px] leading-7 text-[#EEE0FF]"
             style={{ fontFamily: '"Inter", sans-serif', fontWeight: 300 }}
           >
-            We build prototypes, perform deep investigations, and validate new systems for founders pushing the edge of
-            Web3.
+            We take on focused R&D projects and aim to ship them as durable, maintainable systems. We investigate, build, and validate targeted solutions designed to keep working well after launch.
           </p>
           <div className="mt-6">
             <a
-              href="#research-grid"
+              href="/contact"
               className="inline-flex w-fit items-center justify-center rounded-xl bg-[#5B4BFF] px-10 py-4 text-lg font-semibold text-white shadow-[0_20px_40px_rgba(86,64,255,0.35)] transition-transform hover:-translate-y-0.5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
             >
               Start a Project&nbsp;&nbsp;→
@@ -889,7 +1154,7 @@ const AuditPricingCTA = () => (
         <p className="mt-2 text-lg text-[#CBC4E8]">or Fixed Price Engagements Available</p>
       </div>
       <a
-        href="#contact"
+        href="/contact"
         className="inline-flex items-center justify-center rounded-2xl bg-[#5B4BFF] px-10 py-4 text-base font-semibold text-white shadow-[0_20px_40px_rgba(86,64,255,0.35)] transition-transform hover:-translate-y-0.5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
       >
         Start Now&nbsp;&nbsp;→
@@ -944,6 +1209,70 @@ const PortfolioPage = () => (
   </>
 );
 
+const PortfolioArticleHero = ({ title, subtitle, image }) => (
+  <section className="relative isolate w-full overflow-hidden bg-[#03012E]">
+    <div className="absolute inset-0">
+      <img
+        src="/images/banner/banner_dark.jpeg"
+        alt="Abstract security inspired banner"
+        className="h-full w-full object-cover"
+      />
+      <div className="absolute inset-0 bg-gradient-to-r from-[#03012E]/90 via-[#03012E]/70 to-transparent" />
+    </div>
+    <div className="relative mx-auto flex min-h-[260px] w-full max-w-6xl items-stretch px-5 pt-6 pb-10 sm:px-8 lg:px-10">
+      <div className="w-full rounded-3xl bg-[#03012E]/95 px-6 py-8 shadow-[0_30px_60px_rgba(3,1,46,0.6)] backdrop-blur-md md:w-2/3 md:px-8 md:py-10">
+        <a href="/portfolio" className="text-sm text-[#A9A5D4] hover:text-white">
+          ← Back to Portfolio
+        </a>
+        <p className="mt-4 text-xs uppercase tracking-[0.3em] text-[#8B8BB6]">Portfolio</p>
+        <p
+          className="mt-3 text-[34px] font-medium leading-tight text-white sm:text-[46px]"
+          style={{ fontFamily: '"Poppins", sans-serif', letterSpacing: '-0.02em' }}
+        >
+          {title}
+        </p>
+        {subtitle && (
+          <p className="mt-4 text-base text-[#EEE0FF]" style={{ fontFamily: '"Inter", sans-serif', fontWeight: 300 }}>
+            {subtitle}
+          </p>
+        )}
+      </div>
+    </div>
+  </section>
+);
+
+const PortfolioArticlePage = ({ slug }) => {
+  const entry = portfolioDetails.find((item) => item.slug === slug);
+
+  if (!entry) {
+    return <PortfolioPage />;
+  }
+
+  const htmlContent = React.useMemo(() => convertMarkdownToHtml(entry.content), [entry.content]);
+
+  return (
+    <>
+      <PortfolioArticleHero title={entry.title} subtitle={entry.subtitle} image={entry.heroImage} />
+      <article className="bg-[#03012E] px-5 pb-20 pt-12 text-white sm:px-8 lg:px-10">
+        <div
+          className="markdown-content mx-auto max-w-4xl text-[#DED9FF]"
+          dangerouslySetInnerHTML={{ __html: htmlContent }}
+        />
+        <div className="mx-auto mt-12 max-w-4xl rounded-3xl border border-white/10 bg-[#05042A] p-6 text-center">
+          <p className="text-base text-[#BEB7FF]">
+            Interested in a similar engagement?{' '}
+            <a href="/contact" className="text-white underline">
+              Contact us
+            </a>
+            .
+          </p>
+        </div>
+      </article>
+      <Footer />
+    </>
+  );
+};
+
 const ResearchPage = () => (
   <>
     <ResearchHero />
@@ -980,7 +1309,7 @@ const AboutHero = () => (
           className="mt-4 text-[18px] leading-7 text-[#EEE0FF]"
           style={{ fontFamily: '"Inter", sans-serif', fontWeight: 300 }}
         >
-          A focused group of auditors, builders, and systems thinkers covering smart contract security and applied AI.
+          Focused on Smart Contract Security and R&D.
         </p>
       </div>
     </div>
@@ -990,15 +1319,14 @@ const AboutHero = () => (
 const teamMembers = [
   {
     name: 'Ian Tozer',
-    title: 'Founder • Smart Contract Security & Full-Stack Engineer',
+    title: 'Founder',
     bio: [
-      'Security engineer with extensive experience in smart contract auditing, vulnerability research, and LLM-assisted tooling.',
-      'Private auditor for notable protocols, contributor to Hound’s knowledge-graph analysis engine, and discoverer of several high-impact vulnerabilities.',
-      'Focuses on exploit-path reasoning, code comprehension tooling, architectural mapping, and rigorous security workflows.',
+      'Ian is a security engineer and full-stack developer with extensive experience in smart contract auditing. He has worked in blockchain since 2018, initially focused on DAOs and on-chain governance before moving into smart contract security, vulnerability research, and protocol development. Through competitive auditing, he has developed strong capabilities in exploit-path analysis, architectural review, and rigorous security workflows.',
+      'Ian\'s interests include technology, mathematics, and macroeconomics. He holds a CFA Level II and a BSc in Psychology, and attributes much of his expertise to hands-on experimentation, self-study, peer collaboration, and mentorship. He is frequently exploring new technologies through research and development.',
     ],
-    bullets: ['CFA Level II', 'Member of TheMarketSniper', 'Governance and Mathematics'],
+    bullets: [],
     actions: [{ label: 'CV / Resume', href: '/ian_tozer_cv.pdf' }],
-    image: '/images/folks/ian.jpg',
+    image: '/images/folks/ian3.png',
   },
   {
     name: 'Jonathan Van Den Berg',
@@ -1013,7 +1341,7 @@ const teamMembers = [
       { name: 'ztudium', src: '/images/logos/ztudium.png' },
       { name: 'DandelionLabs', src: '/images/logos/dandelion_labs.png' },
     ],
-    actions: [{ label: 'LinkedIn', href: 'https://www.linkedin.com' }],
+    actions: [{ label: 'CV / Resume', href: '/jon_cv.pdf' }],
     image: '/images/folks/jon.jpeg',
   },
 ];
@@ -1075,7 +1403,7 @@ const AboutPage = () => (
               </div>
             </div>
             <div className="flex items-center justify-center">
-              <div className="relative h-72 w-full overflow-hidden rounded-[36px] border border-white/10 bg-[#0B0C2F]">
+              <div className="relative aspect-square w-full max-w-sm overflow-hidden rounded-[36px] border border-white/10 bg-[#0B0C2F]">
                 {member.image ? (
                   <img
                     src={member.image}
@@ -1094,6 +1422,85 @@ const AboutPage = () => (
             </div>
           </article>
         ))}
+      </div>
+    </section>
+    <Footer />
+  </>
+);
+
+const ContactPage = () => (
+  <>
+    <section className="relative overflow-hidden bg-[#03012E] px-5 pb-20 pt-12 sm:px-8 lg:px-10">
+      <div className="pointer-events-none absolute inset-0">
+        <div className="absolute -top-32 right-[-120px] h-72 w-72 rounded-full bg-[#5B4BFF]/25 blur-3xl" />
+        <div className="absolute bottom-[-180px] left-[-80px] h-80 w-80 rounded-full bg-[#7BFFC9]/10 blur-3xl" />
+        <div className="absolute left-1/2 top-20 h-44 w-[70%] -translate-x-1/2 rounded-[50%] bg-gradient-to-r from-transparent via-white/5 to-transparent blur-2xl" />
+      </div>
+      <div className="relative mx-auto w-full max-w-4xl text-white">
+        <a
+          href="/"
+          className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-xs uppercase tracking-[0.3em] text-[#C9C6EA] transition hover:border-white/30 hover:text-white"
+        >
+          ← Back to Home
+        </a>
+        <div className="mx-auto mt-10 flex max-w-3xl flex-col items-center text-center">
+          <h1
+            className="text-[40px] font-medium sm:text-[48px]"
+            style={{ fontFamily: '"Poppins", sans-serif', letterSpacing: '-0.02em' }}
+          >
+            Contact Us
+          </h1>
+          <p className="mt-3 text-base text-[#C9C6EA]">
+            To reach out directly, message us on Telegram or send an email to{' '}
+            <a href="mailto:ian.z.tozer@gmail.com" className="text-white underline">
+              ian.z.tozer@gmail.com
+            </a>
+            .
+          </p>
+        </div>
+        <div className="mx-auto mt-10 w-full max-w-3xl rounded-[28px] bg-gradient-to-br from-[#5B4BFF]/35 via-[#0B0933] to-[#05041B] p-[1px] shadow-[0_40px_90px_rgba(0,0,0,0.45)]">
+          <form
+            action="https://formspree.io/f/mbddbkdq"
+            method="POST"
+            className="space-y-5 rounded-[27px] border border-white/10 bg-[#05042A]/90 p-8 text-left backdrop-blur"
+          >
+            <label className="block space-y-2">
+              <span className="text-xs uppercase tracking-[0.22em] text-[#9A95C7]">Project Name (Optional)</span>
+              <input
+                type="text"
+                name="project"
+                placeholder="Your project name"
+                className="w-full rounded-2xl border border-white/10 bg-[#0A0934] px-4 py-3 text-base text-white placeholder:text-white/40 shadow-[inset_0_0_0_1px_rgba(255,255,255,0.03)] focus:border-[#6F61FF] focus:outline-none focus:ring-2 focus:ring-[#6F61FF]/40"
+              />
+            </label>
+            <label className="block space-y-2">
+              <span className="text-xs uppercase tracking-[0.22em] text-[#9A95C7]">Telegram (Optional)</span>
+              <input
+                type="text"
+                name="telegram"
+                placeholder="@yourusername"
+                className="w-full rounded-2xl border border-white/10 bg-[#0A0934] px-4 py-3 text-base text-white placeholder:text-white/40 shadow-[inset_0_0_0_1px_rgba(255,255,255,0.03)] focus:border-[#6F61FF] focus:outline-none focus:ring-2 focus:ring-[#6F61FF]/40"
+              />
+            </label>
+            <label className="block space-y-2">
+              <span className="text-xs uppercase tracking-[0.22em] text-[#9A95C7]">Email *</span>
+              <input
+                type="email"
+                name="email"
+                required
+                placeholder="you@email.com"
+                className="w-full rounded-2xl border border-white/10 bg-[#0A0934] px-4 py-3 text-base text-white placeholder:text-white/40 shadow-[inset_0_0_0_1px_rgba(255,255,255,0.03)] focus:border-[#6F61FF] focus:outline-none focus:ring-2 focus:ring-[#6F61FF]/40"
+              />
+            </label>
+            <button
+              type="submit"
+              className="w-full rounded-2xl bg-gradient-to-r from-[#6E5BFF] via-[#5B4BFF] to-[#3E2BFF] px-6 py-3 text-sm font-semibold text-white shadow-[0_18px_40px_rgba(90,76,255,0.45)] transition hover:-translate-y-0.5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+            >
+              Submit Contact Request
+            </button>
+          </form>
+        </div>
+        <p className="mt-6 text-center text-sm text-[#8D89B3]">Contact us on Telegram</p>
       </div>
     </section>
     <Footer />
@@ -1171,12 +1578,6 @@ const BlogArticlePage = ({ slug }) => {
   }
 
   const htmlContent = React.useMemo(() => convertMarkdownToHtml(post.content), [post.content]);
-  const iframeLinks = [
-    { label: 'Architectural Map', src: 'https://link.excalidraw.com/readonly/Qw6Y2tLPhtQAptqGDSTk' },
-    { label: 'Investigation 1', src: 'https://link.excalidraw.com/readonly/YEEDuljowOddcER8zcMC' },
-    { label: 'Investigation 2', src: 'https://link.excalidraw.com/readonly/DHYDsuV4DAOc0dBPJXwt' },
-    { label: 'Investigation 3', src: 'https://link.excalidraw.com/readonly/jxsR5Tp0vPPibWbs7ZC0' },
-  ];
 
   return (
     <>
@@ -1186,14 +1587,6 @@ const BlogArticlePage = ({ slug }) => {
           className="markdown-content mx-auto max-w-3xl text-[#DED9FF]"
           dangerouslySetInnerHTML={{ __html: htmlContent }}
         />
-        <div className="markdown-iframes mx-auto max-w-4xl">
-          {iframeLinks.map((frame) => (
-            <div key={frame.src} className="text-left text-sm text-[#B6B2D4]">
-              <p className="mb-2 font-semibold text-white">{frame.label}</p>
-              <iframe title={frame.label} src={frame.src} loading="lazy" />
-            </div>
-          ))}
-        </div>
         <div className="mx-auto mt-10 max-w-3xl rounded-3xl border border-white/10 bg-[#05042A] p-6 text-center">
           <p className="text-base text-[#BEB7FF]">
             Need a deep dive like this for your protocol?{' '}
@@ -1225,7 +1618,7 @@ const App = () => {
       page = <AuditReportsPage />;
       break;
     case 'portfolio':
-      page = <PortfolioPage />;
+      page = subSlug ? <PortfolioArticlePage slug={subSlug} /> : <PortfolioPage />;
       break;
     case 'research':
       page = <ResearchPage />;
@@ -1235,6 +1628,9 @@ const App = () => {
       break;
     case 'about':
       page = <AboutPage />;
+      break;
+    case 'contact':
+      page = <ContactPage />;
       break;
     default:
       page = <HomePage />;

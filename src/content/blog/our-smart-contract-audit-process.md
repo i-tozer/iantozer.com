@@ -36,7 +36,8 @@ In the map, I try to capture:
 
 Here’s what one of my maps looks like:
 
-- [Architectural Map](https://link.excalidraw.com/readonly/Qw6Y2tLPhtQAptqGDSTk)
+**Architectural Map**
+:::excalidraw https://link.excalidraw.com/readonly/Qw6Y2tLPhtQAptqGDSTk
 
 This step is time-consuming, but I think LLM-based tools will reduce the initial workload with a little innovation and engineering.
 
@@ -63,9 +64,14 @@ It’s also enjoyable and fun (at least to me).
 
 To see what this looks like in practice (click links to explore!):
 
-- [Investigation 1](https://link.excalidraw.com/readonly/YEEDuljowOddcER8zcMC)
-- [Investigation 2](https://link.excalidraw.com/readonly/DHYDsuV4DAOc0dBPJXwt)
-- [Investigation 3](https://link.excalidraw.com/readonly/1HJNbsZVM85CCR4u28m7)
+**Investigation 1**
+:::excalidraw https://link.excalidraw.com/readonly/YEEDuljowOddcER8zcMC
+
+**Investigation 2**
+:::excalidraw https://link.excalidraw.com/readonly/DHYDsuV4DAOc0dBPJXwt
+
+**Investigation 3**
+:::excalidraw https://link.excalidraw.com/readonly/1HJNbsZVM85CCR4u28m7
 
 Just by exploring boundary conditions and understanding how things work, I start to develop hunches (hypotheses) that may or may not lead to actual vulnerabilities.
 
