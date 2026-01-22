@@ -1042,23 +1042,23 @@ const methodStepsPrimary = [
 
 const methodStepsAnalysis = [
   {
-    title: 'Step N+1: Breadth-First Analysis',
-    subtitle: 'We review breadth-first to find emergent behaviors across contracts',
+    title: 'Step N+1: Depth-First Analysis',
+    subtitle: 'We review depth-first to find emergent behaviors across contracts',
     src: 'https://link.excalidraw.com/readonly/YEEDuljowOddcER8zcMC',
   },
   {
-    title: 'Step N+1: Breadth-First Analysis',
-    subtitle: 'We review breadth-first to find emergent behaviors across contracts',
+    title: 'Step N+1: Depth-First Analysis',
+    subtitle: 'We review depth-first to find emergent behaviors across contracts',
     src: 'https://link.excalidraw.com/readonly/DHYDsuV4DAOc0dBPJXwt',
   },
   {
-    title: 'Step N+1: Breadth-First Analysis',
-    subtitle: 'We review breadth-first to find emergent behaviors across contracts',
+    title: 'Step N+1: Depth-First Analysis',
+    subtitle: 'We review depth-first to find emergent behaviors across contracts',
     src: 'https://link.excalidraw.com/readonly/1HJNbsZVM85CCR4u28m7',
   },
   {
-    title: 'Step N+1: Breadth-First Analysis',
-    subtitle: 'We review breadth-first to find emergent behaviors across contracts',
+    title: 'Step N+1: Depth-First Analysis',
+    subtitle: 'We review depth-first to find emergent behaviors across contracts',
     src: 'https://link.excalidraw.com/readonly/jxsR5Tp0vPPibWbs7ZC0',
   },
 ];
