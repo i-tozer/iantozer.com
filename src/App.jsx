@@ -1321,7 +1321,7 @@ const teamMembers = [
     name: 'Ian Tozer',
     title: 'Founder',
     bio: [
-      'Ian is a security engineer and full-stack developer with extensive experience in smart contract auditing. He has worked in blockchain since 2018, initially focused on DAOs and on-chain governance before moving into smart contract security, vulnerability research, and protocol development. Through competitive auditing, he has developed strong capabilities in exploit-path analysis, architectural review, and rigorous security workflows.',
+      'Ian is a security engineer and full-stack developer with extensive experience in smart contract auditing. He became involved in blockchain in 2018 through meetups and technical talks, with an early focus on DAOs and on-chain governance, and later transitioned into smart contract security, vulnerability research, and protocol development. Through competitive auditing, he has developed strong capabilities in exploit-path analysis, architectural review, and rigorous security workflows.',
       'Ian\'s interests include technology, mathematics, and macroeconomics. He holds a CFA Level II and a BSc in Psychology, and attributes much of his expertise to hands-on experimentation, self-study, peer collaboration, and mentorship. He is frequently exploring new technologies through research and development.',
     ],
     bullets: [],
