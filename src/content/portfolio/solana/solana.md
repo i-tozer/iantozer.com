@@ -1,6 +1,6 @@
 ## Web3Geography
 
-We collected **50,000+** web3 job postings, more than **5×** the original target.
+We collected **60,000+** web3 job postings, more than **6×** the original target.
 
 Tozer Labs (formerly Wizzy Wig Web3) received a multi-year grant from the Solana Foundation to build **Web3Geography**, a public data and research initiative focused on where web3 work happens. The project scraped and open-sourced job location data, transforming it into dashboards and reports that surfaced trends across geography, company size, and in-demand skills.
 
