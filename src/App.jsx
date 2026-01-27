@@ -762,8 +762,8 @@ const footerLinks = [
   {
     heading: 'Services',
     links: [
-      { label: 'Smart Contract Auditing', href: '/audits' },
-      { label: 'Audit Reports', href: '/reports' },
+      { label: 'Smart Contract Audits', href: '/audits' },
+      { label: 'Research and Developments', href: '/research' },
     ],
   },
 ];
@@ -1325,7 +1325,10 @@ const teamMembers = [
       'Ian\'s interests include technology, mathematics, and macroeconomics. He holds a CFA Level II and a BSc in Psychology, and attributes much of his expertise to hands-on experimentation, self-study, peer collaboration, and mentorship. He is frequently exploring new technologies through research and development.',
     ],
     bullets: [],
-    actions: [{ label: 'CV / Resume', href: '/ian_tozer_cv.pdf' }],
+    actions: [
+      { label: 'CV / Resume', href: '/ian_tozer_cv.pdf' },
+      { label: 'Telegram', href: 'https://t.me/iantozer' },
+    ],
     image: '/images/folks/ian3.png',
   },
   {
@@ -1451,7 +1454,11 @@ const ContactPage = () => (
             Contact Us
           </h1>
           <p className="mt-3 text-base text-[#C9C6EA]">
-            To reach out directly, message us on Telegram or send an email to{' '}
+            To reach out directly, message us on{' '}
+            <a href="https://t.me/iantozer" className="text-white underline" target="_blank" rel="noreferrer">
+              Telegram
+            </a>{' '}
+            or send an email to{' '}
             <a href="mailto:ian.z.tozer@gmail.com" className="text-white underline">
               ian.z.tozer@gmail.com
             </a>
@@ -1500,7 +1507,12 @@ const ContactPage = () => (
             </button>
           </form>
         </div>
-        <p className="mt-6 text-center text-sm text-[#8D89B3]">Contact us on Telegram</p>
+        <p className="mt-6 text-center text-sm text-[#8D89B3]">
+          Contact us on{' '}
+          <a href="https://t.me/iantozer" className="text-white underline" target="_blank" rel="noreferrer">
+            Telegram
+          </a>
+        </p>
       </div>
     </section>
     <Footer />
