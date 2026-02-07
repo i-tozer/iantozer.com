@@ -2,18 +2,35 @@
 @import "tailwindcss";
 
 /* Global background and overflow prevention */
-html {
-  background: linear-gradient(135deg, rgba(15, 23, 42, 1) 0%, rgba(30, 41, 59, 0.98) 50%, rgba(51, 65, 85, 0.95) 100%);
+:root {
+  /* Keep the page background on both html + body so overscroll never flashes white. */
+  --page-bg: linear-gradient(
+    135deg,
+    rgba(15, 23, 42, 1) 0%,
+    rgba(30, 41, 59, 0.98) 50%,
+    rgba(51, 65, 85, 0.95) 100%
+  );
+  --page-bg-solid: rgb(15, 23, 42);
+}
+
+html,
+body {
+  background-color: var(--page-bg-solid);
+  background-image: var(--page-bg);
   background-attachment: fixed;
+
   min-height: 100vh;
-  overflow-x: hidden;
   max-width: 100vw;
+
+  overflow-x: hidden;
+
+  /* Prevent "rubber band" chaining into the page background on supported browsers. */
+  overscroll-behavior: none;
 }
 
 body {
   overflow-x: hidden;
   max-width: 100vw;
-  background: transparent;
   min-height: 100vh;
   margin: 0;
   padding: 0;
