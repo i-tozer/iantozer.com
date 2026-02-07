@@ -661,11 +661,11 @@ const FeaturedAudits = ({
                 <img
                   src={card.src}
                   alt={`${card.title} preview`}
-                  className="h-full w-full object-cover"
+                  className="h-full w-full object-cover transition duration-300 group-hover:scale-[1.02] group-hover:blur-sm group-hover:brightness-50 group-hover:saturate-75"
                   loading="lazy"
                 />
                 {card.href && (
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#05042A]/95 via-[#05042A]/40 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#05042A]/95 via-[#05042A]/80 to-[#05042A]/55 opacity-0 backdrop-blur-md transition-opacity duration-300 group-hover:opacity-100">
                     <div className="absolute bottom-0 left-0 right-0 p-6">
                       <p className="text-xs uppercase tracking-[0.3em] text-[#A7A0D6]">{card.subtitle}</p>
                       <p className="mt-2 text-lg font-semibold text-white">{card.title}</p>
@@ -720,11 +720,11 @@ const FeaturedWorks = () => {
                 <img
                   src={card.src}
                   alt={`${card.title} preview`}
-                  className="h-full w-full object-cover"
+                  className="h-full w-full object-cover transition duration-300 group-hover:scale-[1.02] group-hover:blur-sm group-hover:brightness-50 group-hover:saturate-75"
                   loading="lazy"
                 />
                 {card.href && (
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#05042A]/95 via-[#05042A]/40 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#05042A]/95 via-[#05042A]/80 to-[#05042A]/55 opacity-0 backdrop-blur-md transition-opacity duration-300 group-hover:opacity-100">
                     <div className="absolute bottom-0 left-0 right-0 p-6">
                       <p className="text-xs uppercase tracking-[0.3em] text-[#A7A0D6]">{card.subtitle}</p>
                       <p className="mt-2 text-lg font-semibold text-white">{card.title}</p>
