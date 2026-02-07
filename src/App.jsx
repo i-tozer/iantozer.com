@@ -271,7 +271,7 @@ const ServicesOverview = () => {
     <section className="bg-[#05042A] px-5 py-16 sm:px-8 lg:px-10">
       <div className="mx-auto flex w-full max-w-6xl flex-col gap-10 sm:flex-row sm:items-start sm:justify-between">
         <div className="space-y-4 text-left">
-          <p className="text-sm uppercase tracking-[0.2em] text-[#8B8BB6]">
+          <p className="inline-flex items-center rounded-full border border-white/10 bg-white/5 px-4 py-2 text-[11px] uppercase tracking-[0.28em] text-[#C8C2F2]">
             Secure your smart contracts
           </p>
           <div className="text-[42px] leading-tight text-[#E5E2FF]" style={{ fontFamily: '"Poppins", sans-serif' }}>
@@ -302,7 +302,7 @@ const ResearchDevelopment = () => {
     <section className="bg-[#03002A] px-5 py-16 sm:px-8 lg:px-10">
       <div className="mx-auto flex w-full max-w-6xl flex-col gap-10 sm:flex-row sm:items-start sm:justify-between">
         <div className="space-y-4 text-left">
-          <p className="text-sm uppercase tracking-[0.2em] text-[#8B8BB6]">
+          <p className="inline-flex items-center rounded-full border border-white/10 bg-white/5 px-4 py-2 text-[11px] uppercase tracking-[0.28em] text-[#C8C2F2]">
             Building your vision
           </p>
           <div className="text-[42px] leading-tight text-[#E5E2FF]" style={{ fontFamily: '"Poppins", sans-serif' }}>
@@ -638,13 +638,22 @@ const blogPosts = [
 
 const FeaturedAudits = ({
   cards = auditCardsPrimary,
-  label = 'Proven in production',
+  label = 'Securing Your Code',
   title = 'Featured Audit Reports',
+  labelVariant = 'text',
 }) => {
   return (
     <section className="bg-[#03012E] px-5 pb-16 pt-12 sm:px-8 lg:px-10">
       <div className="mx-auto w-full max-w-6xl">
-        <p className="text-sm uppercase tracking-[0.3em] text-[#8B8BB6]">{label}</p>
+        <p
+          className={
+            labelVariant === 'tag'
+              ? 'inline-flex items-center rounded-full border border-white/10 bg-white/5 px-4 py-2 text-[11px] uppercase tracking-[0.28em] text-[#C8C2F2]'
+              : 'text-sm uppercase tracking-[0.3em] text-[#8B8BB6]'
+          }
+        >
+          {label}
+        </p>
         <h3
           className="mt-2 text-[32px] font-medium text-white sm:text-[40px]"
           style={{ fontFamily: '"Poppins", sans-serif', letterSpacing: '-0.02em' }}
@@ -1168,7 +1177,7 @@ const HomePage = () => (
     <Hero />
     <ClientsSection />
     <ServicesOverview />
-    <FeaturedAudits />
+    <FeaturedAudits labelVariant="tag" />
     <ResearchDevelopment />
     <FeaturedWorks />
     <Footer />
@@ -1179,7 +1188,7 @@ const SmartContractAuditsPage = () => (
   <>
     <SmartContractAuditHero />
     <AuditClientReel />
-    <FeaturedAudits />
+    <FeaturedAudits labelVariant="tag" />
     <TargetedInvestigations />
     <MethodSection />
     <AuditPricingCTA />
