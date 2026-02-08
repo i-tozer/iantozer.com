@@ -568,17 +568,17 @@ const convertMarkdownToHtml = (markdown) => {
       continue;
     }
 
-    if (line.startsWith(':::excalidraw')) {
-      flushList();
-      flushImageGrid();
-      const src = line.replace(':::excalidraw', '').trim();
-      if (src) {
-        htmlParts.push(
-          `<div class="markdown-excalidraw"><iframe title="Excalidraw diagram" src="${src}" loading="lazy" allowFullScreen></iframe></div>`,
-        );
-      }
-      continue;
-    }
+	    if (line.startsWith(':::excalidraw')) {
+	      flushList();
+	      flushImageGrid();
+	      const src = line.replace(':::excalidraw', '').trim();
+	      if (src) {
+	        htmlParts.push(
+	          `<div class="markdown-excalidraw embed-scroll-safe"><iframe title="Excalidraw diagram" src="${src}" loading="lazy" allowFullScreen></iframe><a class="embed-scroll-safe__cta" href="${src}" target="_blank" rel="noopener noreferrer">Open interactive</a></div>`,
+	        );
+	      }
+	      continue;
+	    }
 
     if (!line) {
       flushList();
@@ -1095,32 +1095,48 @@ const MethodSection = () => {
         >
           {mainStep.title}
         </h3>
-        <p className="mt-3 text-base text-[#CBC4E8]">{mainStep.subtitle}</p>
-        <div className="mt-10 overflow-hidden rounded-3xl border border-white/10 bg-[#060724] shadow-[0_30px_60px_rgba(3,1,46,0.6)]">
-          <iframe
-            title="Tozer Labs Method Diagram"
-            src={mainStep.src}
-            className="h-[520px] w-full"
-            loading="lazy"
-            allowFullScreen
-          />
-        </div>
-        <h4
-          className="mt-16 text-[32px] font-medium text-white sm:text-[40px]"
-          style={{ fontFamily: '"Poppins", sans-serif', letterSpacing: '-0.02em' }}
-        >
-          {currentAnalysis.title}
-        </h4>
-        <p className="mt-3 text-base text-[#CBC4E8]">{currentAnalysis.subtitle}</p>
-        <div className="mt-6 overflow-hidden rounded-3xl border border-white/10 bg-[#060724] shadow-[0_30px_60px_rgba(3,1,46,0.6)]">
-          <iframe
-            title="Tozer Labs Breadth Analysis Diagram"
-            src={currentAnalysis.src}
-            className="h-[520px] w-full"
-            loading="lazy"
-            allowFullScreen
-          />
-        </div>
+	        <p className="mt-3 text-base text-[#CBC4E8]">{mainStep.subtitle}</p>
+	        <div className="embed-scroll-safe mt-10 overflow-hidden rounded-3xl border border-white/10 bg-[#060724] shadow-[0_30px_60px_rgba(3,1,46,0.6)]">
+	          <iframe
+	            title="Tozer Labs Method Diagram"
+	            src={mainStep.src}
+	            className="h-[520px] w-full"
+	            loading="lazy"
+	            allowFullScreen
+	          />
+	          <a
+	            className="embed-scroll-safe__cta"
+	            href={mainStep.src}
+	            target="_blank"
+	            rel="noopener noreferrer"
+	          >
+	            Open interactive
+	          </a>
+	        </div>
+	        <h4
+	          className="mt-16 text-[32px] font-medium text-white sm:text-[40px]"
+	          style={{ fontFamily: '"Poppins", sans-serif', letterSpacing: '-0.02em' }}
+	        >
+	          {currentAnalysis.title}
+	        </h4>
+	        <p className="mt-3 text-base text-[#CBC4E8]">{currentAnalysis.subtitle}</p>
+	        <div className="embed-scroll-safe mt-6 overflow-hidden rounded-3xl border border-white/10 bg-[#060724] shadow-[0_30px_60px_rgba(3,1,46,0.6)]">
+	          <iframe
+	            title="Tozer Labs Breadth Analysis Diagram"
+	            src={currentAnalysis.src}
+	            className="h-[520px] w-full"
+	            loading="lazy"
+	            allowFullScreen
+	          />
+	          <a
+	            className="embed-scroll-safe__cta"
+	            href={currentAnalysis.src}
+	            target="_blank"
+	            rel="noopener noreferrer"
+	          >
+	            Open interactive
+	          </a>
+	        </div>
         <div className="mt-6 flex items-center justify-center gap-4">
           <button
             type="button"
